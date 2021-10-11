@@ -5,10 +5,10 @@ import com.piminovdmitry.raif_cib_interns_test_task.entity.StockUnitMove;
 import java.util.List;
 
 public interface StockUnitMoveService {
-    public void saveStockUnitMove(StockUnitMove stockUnitMove);
+    void saveStockUnitMove(StockUnitMove stockUnitMove);
 
-    public void saveStockUnitOutcome(StockUnitMove stockUnitMove);
+    void saveStockUnitOutcome(StockUnitMove stockUnitMove);
 
-    public List<StockUnitMove> getStockUnitMoveByParams(String color, int cottonPart, Operation operation);
+    List<StockUnitMove> getStockUnitMoveByParams(String color, int cottonPart, CompOperation operation);
 
 }

@@ -27,7 +27,7 @@ public class StockUnitMoveServiceImpl implements StockUnitMoveService {
 
     @Override
     @Transactional
-    public List<StockUnitMove> getStockUnitMoveByParams(String color, int cottonPart, Operation operation) {
+    public List<StockUnitMove> getStockUnitMoveByParams(String color, int cottonPart, CompOperation operation) {
         return null;
     }
 }
