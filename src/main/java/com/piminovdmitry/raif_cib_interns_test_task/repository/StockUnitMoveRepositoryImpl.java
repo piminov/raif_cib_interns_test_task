@@ -1,4 +1,4 @@
-package com.piminovdmitry.raif_cib_interns_test_task.dao;
+package com.piminovdmitry.raif_cib_interns_test_task.repository;
 
 import com.piminovdmitry.raif_cib_interns_test_task.entity.StockUnitMove;
 
@@ -8,11 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public class StockUnitMoveDAOImpl implements StockUnitMoveDAO {
+public class StockUnitMoveRepositoryImpl implements StockUnitMoveRepository {
 
     @Autowired
     private EntityManager entityManager;

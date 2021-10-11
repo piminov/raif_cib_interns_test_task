@@ -1,6 +1,6 @@
 package com.piminovdmitry.raif_cib_interns_test_task.service;
 
-import com.piminovdmitry.raif_cib_interns_test_task.dao.StockUnitMoveDAO;
+import com.piminovdmitry.raif_cib_interns_test_task.repository.StockUnitMoveRepository;
 import com.piminovdmitry.raif_cib_interns_test_task.entity.StockUnitMove;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class StockUnitMoveServiceImpl implements StockUnitMoveService {
     @Autowired
-    private StockUnitMoveDAO stockUnitMoveDAO;
+    private StockUnitMoveRepository stockUnitMoveDAO;
 
     @Override
     @Transactional

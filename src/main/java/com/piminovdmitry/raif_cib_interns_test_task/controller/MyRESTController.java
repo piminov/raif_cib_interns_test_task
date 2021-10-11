@@ -18,14 +18,14 @@ public class MyRESTController {
 
     @PostMapping("/socks/income")
     public StockUnitMove addIncome(@RequestBody StockUnitMove stockUnitMove) {
-        stockUnitMove.setTransactionType(TransactionType.income);
+        stockUnitMove.setTransactionType(TransactionType.INCOME);
         stockUnitMoveService.saveStockUnitMove(stockUnitMove);
         return stockUnitMove;
     }
 
     @PostMapping("/socks/outcome")
     public StockUnitMove addOutcome(@RequestBody StockUnitMove stockUnitMove) {
-        stockUnitMove.setTransactionType(TransactionType.outcome);
+        stockUnitMove.setTransactionType(TransactionType.OUTCOME);
         stockUnitMoveService.saveStockUnitOutcome(stockUnitMove);
         return stockUnitMove;
     }
