@@ -6,8 +6,8 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="stock_units_movement")
-public class StockUnitMove {
+@Table(name="stock_units")
+public class StockUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -17,24 +17,19 @@ public class StockUnitMove {
     private String color;
 
     @Column(name="cotton_part")
-    private String cottonPart;
+    private int cottonPart;
 
     @Column(name="quantity")
     private int quantity;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name="transaction_type")
-    private TransactionType transactionType;
-
-    public StockUnitMove() {
+    public StockUnit() {
     }
 
-    public StockUnitMove(int id, String color, String cottonPart, int quantity, TransactionType transactionType) {
+    public StockUnit(int id, String color, int cottonPart, int quantity) {
         this.id = id;
         this.color = color;
         this.cottonPart = cottonPart;
         this.quantity = quantity;
-        this.transactionType = transactionType;
     }
 
     public int getId() {
@@ -53,11 +48,11 @@ public class StockUnitMove {
         this.color = color;
     }
 
-    public String getCottonPart() {
+    public int getCottonPart() {
         return cottonPart;
     }
 
-    public void setCottonPart(String cottonPart) {
+    public void setCottonPart(int cottonPart) {
         this.cottonPart = cottonPart;
     }
 
@@ -67,14 +62,6 @@ public class StockUnitMove {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public TransactionType getTransactionType() {
-        return transactionType;
-    }
-
-    public void setTransactionType(TransactionType transactionType) {
-        this.transactionType = transactionType;
     }
 
     @Override
