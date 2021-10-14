@@ -1,7 +1,5 @@
 package com.piminovdmitry.raif_cib_interns_test_task.entity;
 
-import com.piminovdmitry.raif_cib_interns_test_task.service.TransactionType;
-
 import javax.persistence.*;
 
 
@@ -72,5 +70,9 @@ public class StockUnit {
                 ", cottonPart='" + cottonPart + '\'' +
                 ", quantity=" + quantity +
                 '}';
+    }
+
+    public boolean Incorrect() {
+        return (cottonPart < 0 || cottonPart > 100 || quantity < 0 || color == null || color.equals(""));
     }
 }

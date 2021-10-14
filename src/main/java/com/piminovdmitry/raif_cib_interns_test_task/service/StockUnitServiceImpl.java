@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class StockUnitServiceImpl implements StockUnitService {
@@ -14,37 +15,38 @@ public class StockUnitServiceImpl implements StockUnitService {
 
     @Override
     @Transactional
-    public void saveStockUnit(StockUnit stockUnit, TransactionType transactionType) {
-        StockUnit storedUnitStock = getStockUnitByParams(stockUnit.getColor(), stockUnit.getCottonPart(), "equal");
-
+    public StockUnit saveStockUnitMove(StockUnit stockUnit, TransactionType transactionType) {
+        List<StockUnit> stockUnits = getStockUnitsByParams(stockUnit.getColor(), stockUnit.getCottonPart(), CompOperation.EQUAL);
+        StockUnit storedUnitStock = null;
+        if (!stockUnits.isEmpty()) {
+            storedUnitStock = stockUnits.get(0);
+        }
         if (transactionType == TransactionType.INCOME) {
             if (storedUnitStock == null) {
-                stockUnitRepository.saveOrUpdateStockUnit(stockUnit);
+                return stockUnitRepository.saveOrUpdateStockUnit(stockUnit);
             } else {
                 storedUnitStock.setQuantity(storedUnitStock.getQuantity() + stockUnit.getQuantity());
-                stockUnitRepository.saveOrUpdateStockUnit(storedUnitStock);
+                return stockUnitRepository.saveOrUpdateStockUnit(storedUnitStock);
             }
         } else {
             if (storedUnitStock != null && storedUnitStock.getQuantity() >= stockUnit.getQuantity()) {
                 storedUnitStock.setQuantity(storedUnitStock.getQuantity() - stockUnit.getQuantity());
-                stockUnitRepository.saveOrUpdateStockUnit(storedUnitStock);
+                return stockUnitRepository.saveOrUpdateStockUnit(storedUnitStock);
             } else {
-
+                return null;
             }
         }
     }
 
     @Override
     @Transactional
-    public StockUnit getStockUnitByParams(String color, int cottonPart, String operation) {
-        String newOperator;
-        if (operation.equals("moreThan")) {
-            newOperator = ">";
-        } else if (operation.equals("lessThan")) {
-            newOperator = "<";
-        } else {
-            newOperator = "=";
-        }
-        return stockUnitRepository.getStockUnitByParams(color, cottonPart, newOperator);
+    public List<StockUnit> getStockUnitsByParams(String color, int cottonPart, CompOperation compOperation) {
+        return stockUnitRepository.getStockUnitsByParams(color, cottonPart, compOperation);
+    }
+
+    @Override
+    public int getQuantitySocksUnitByParams(String color, int cottonPart, CompOperation compOperation) {
+        List<StockUnit> list = getStockUnitsByParams(color, cottonPart, compOperation);
+        return list.stream().mapToInt(StockUnit::getQuantity).sum();
     }
 }

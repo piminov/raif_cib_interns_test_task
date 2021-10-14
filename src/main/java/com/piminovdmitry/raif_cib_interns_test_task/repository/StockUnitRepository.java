@@ -1,12 +1,13 @@
 package com.piminovdmitry.raif_cib_interns_test_task.repository;
 
 import com.piminovdmitry.raif_cib_interns_test_task.entity.StockUnit;
+import com.piminovdmitry.raif_cib_interns_test_task.service.CompOperation;
 
 import java.util.List;
 
 public interface StockUnitRepository {
-    StockUnit getStockUnitByParams(String color, int cottonPart, String operator);
+    List<StockUnit> getStockUnitsByParams(String color, int cottonPart, CompOperation compOperation);
 
-    void saveOrUpdateStockUnit(StockUnit stockUnit);
+    StockUnit saveOrUpdateStockUnit(StockUnit stockUnit);
 
 }
