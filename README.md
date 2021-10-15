@@ -1,11 +1,14 @@
 # raif_cib_interns_test_task
-test task for applaying to internship of cib raiffeisen dgtl https://github.com/Raiffeisen-DGTL/cib-interns-test-task
 
-###Минимальные требования выполнены
-##To do:
-    для версионирования схемы базы данных будет использоваться Liquibase или Flyway;
-    база данных будет подниматься рядом с приложением в докер-контейнере;
-    приложение будет развернуто на любом облачном сервисе, например Heroku, и его API будет доступно для вызова.
+* test task for applaying to internship of cib raiffeisen dgtl https://github.com/Raiffeisen-DGTL/cib-interns-test-task
+
+### Минимальные требования выполнены
+
+#### To do:
+
+* для версионирования схемы базы данных будет использоваться Liquibase или Flyway;
+* база данных будет подниматься рядом с приложением в докер-контейнере;
+* приложение будет развернуто на любом облачном сервисе, например Heroku, и его API будет доступно для вызова.
 
 ## Что нужно было сделать
 
