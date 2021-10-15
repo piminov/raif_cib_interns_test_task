@@ -20,7 +20,7 @@ public enum CompOperation {
             return CompOperation.MORE_THAN;
         } else if (OperationName.compareToIgnoreCase("lessThan") == 0) {
             return CompOperation.LESS_THAN;
-        } else if (OperationName.compareToIgnoreCase("EQUAL") == 0) {
+        } else if (OperationName.compareToIgnoreCase("equal") == 0) {
             return CompOperation.EQUAL;
         } else {
             throw new IllegalArgumentException();

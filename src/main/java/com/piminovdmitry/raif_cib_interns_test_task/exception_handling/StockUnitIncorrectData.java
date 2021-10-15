@@ -1,9 +1,9 @@
 package com.piminovdmitry.raif_cib_interns_test_task.exception_handling;
 
-public class IncorrectRequest {
+public class StockUnitIncorrectData {
     private String info;
 
-    public IncorrectRequest() {
+    public StockUnitIncorrectData() {
     }
 
     public String getInfo() {

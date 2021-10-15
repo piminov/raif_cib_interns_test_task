@@ -72,7 +72,7 @@ public class StockUnit {
                 '}';
     }
 
-    public boolean Incorrect() {
-        return (cottonPart < 0 || cottonPart > 100 || quantity < 0 || color == null || color.equals(""));
+    public boolean IsInvalid() {
+        return (cottonPart < 0 || cottonPart > 100 || quantity <= 0 || color == null || color.equals(""));
     }
 }
